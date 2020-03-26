@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Connect4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>Connect4</header>
+    <div id="env">
+        <div id="add-ons">
+        </div>
+        <div id="game">
+            <div class="player-panel">
+                <span class="player-id" style="background-color: #ff6666dd;">
+                    Player 1
+                </span>
+                <div class="alert-player-1" style="visibility: hidden; opacity: 0;">
+                    Your Move.
+                </div>
+            </div>
+            <div class="main">
+                <div class="container-start-btn">
+                    <span class="start-btn">Start</span>
+                    <div class="opening-speech-bubble">Click to Play</div>
+                </div>
+                <div id="app">
+                    <div class="gg" style="display: block;">
+                        <div class="start-overlay" style="display: none; visibility: hidden; opacity: 0;">
+                            Play!!
+                        </div>
+                        <div class="ending-screen" style="display: none; visibility: hidden; opacity: 0;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="player-panel">
+                <span class="player-id" style="background-color: #1b7fdddd;">Player 2</span>
+                <div class="alert-player-2" style="visibility: hidden; opacity: 0;">
+                    Your Move.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
