@@ -1,6 +1,5 @@
-//draw 
-//reset 
-//position 
+// draw 
+// controls 
 
 var game_no = 0;
 
@@ -13,6 +12,7 @@ var game_matrix = [[-1,-1,-1,-1,-1,-1,-1],
 
 var gameOver = false;
 var winningPoints = [];
+var started = false;
 
 var game_container = document.getElementById("app");
 var column_stack = [5,5,5,5,5,5,5]; // Each number shows the top index (0-index) of each column which is available
@@ -21,7 +21,7 @@ var players = ["#ff6666", "#1b7fdd"];
 var player = 0;
 
 // Global Variables for keyboard Navigation
-var focus_col_no = 0;
+var focus_col_no = 3;
 var focused = false;
 var mouse_on_board = false;
 
@@ -119,7 +119,6 @@ function gameSpecifics(col,col_id,blocks) {
         togglePlayers();
 
         focused = false;
-        focus_col_no = 0;
     }
 }
 
@@ -256,7 +255,7 @@ function keyboardNav() {
     });
 
     game_container.addEventListener("mouseleave", () => {
-        focus_col_no = 0;
+        focus_col_no = 3;
         focused = false;
         mouse_on_board = false;
     });
@@ -265,10 +264,6 @@ function keyboardNav() {
 function keyboardMoves(e) {
     if(!mouse_on_board) {
         if(e.key == "ArrowLeft" || e.key == "a" || e.key == "A") {
-            if(!focused) {
-                focus_col_no = 6;
-            }
-            
             if (focus_col_no > 0) {
 
                 if (focused) {
@@ -291,10 +286,6 @@ function keyboardMoves(e) {
             }
         }
         if(e.key == "ArrowRight" || e.key == "d" || e.key == "D") {
-            if(!focused) {
-                focus_col_no = 0;
-            }
-            
             if(focus_col_no < 6) {
 
                 if (focused) {
@@ -331,6 +322,7 @@ function keyboardMoves(e) {
 
 function start() {
     if(document.querySelector(".gg").style.display == "block") {
+        keyboardNav();
         // Remove the speech bubble
         let speechBubble = document.querySelector(".opening-speech-bubble");
         speechBubble.style.opacity = "0";
@@ -372,7 +364,7 @@ function start() {
         column_stack = [5,5,5,5,5,5,5];
 
         // Global Variables for keyboard Navigation
-        focus_col_no = 0;
+        focus_col_no = 3;
         focused = false;
         mouse_on_board = false;
 
@@ -405,5 +397,4 @@ function start() {
 
 $(document).ready(() => {
     init();
-    keyboardNav();
 });
