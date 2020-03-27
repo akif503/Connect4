@@ -84,6 +84,93 @@ body > header {
     transition: visibility 0.1s, opacity 0.5s ease-out;
 }
 
+[class*="player"][class*="controls"] {
+    background-color: blanchedalmond;
+    color: black;
+    text-align: center;
+    margin: 100px 25px;
+    border-radius: 15px;
+}
+
+[class*="player"][class*="controls"] > header {
+    display: block;
+    background-color: chartreuse;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.controls-select {
+    padding: 20px;
+}
+
+[class*="controls"] > span {
+    position: relative;
+    font-size: 1.25rem;
+    background-color: lightslategray;
+    padding: 8px;
+    border-radius: 4px;
+    color: #21262b;
+}
+
+.controls-select > span::after {
+    content: "select";
+    position: absolute;
+    bottom: -15px;
+    left: 20%;
+    font-size: .8rem;
+    color: gray;
+}
+
+.controls-nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    padding: 25px;
+    padding-bottom: 40px;
+}
+
+.controls-left {
+    padding-left: 25px;
+}
+
+.controls-left > span::after {
+    content: "Left";
+    position: absolute;
+    bottom: -15px;
+    left: 20%;
+    font-size: .8rem;
+    color: gray;
+}
+
+.controls-right {
+    padding-right: 25px;
+}
+
+.controls-right > span::after {
+    content: "Right";
+    position: absolute;
+    bottom: -15px;
+    left: 15%;
+    font-size: .8rem;
+    color: gray;
+}
+
+/*
+   Some Styling Issues related to the left & Right Buttons
+*/
+
+.player-1-controls .controls-nav [class*="controls"] > span {
+    padding: 8px 15px;
+}
+
+.player-2-controls .controls-nav [class*="controls"] > span {
+    font-size: 1.5rem;
+    padding: 8px 10px;
+}
+
+
 .show {
     display: block;
     visibility: visible !important;

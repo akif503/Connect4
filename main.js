@@ -264,47 +264,51 @@ function keyboardNav() {
 function keyboardMoves(e) {
     if(!mouse_on_board) {
         if(e.key == "ArrowLeft" || e.key == "a" || e.key == "A") {
-            if (focus_col_no > 0) {
+            if ((e.key == "ArrowLeft" && player == 1) || ((e.key == "a" || e.key == "A") && player == 0)) {
+                if (focus_col_no > 0) {
 
-                if (focused) {
+                    if (focused) {
+                        let col = document.querySelector(`.col-${focus_col_no+1}`);
+                        const col_name = col.classList[0];
+                        const col_id = Number(col_name[4]);
+                        let blocks = col.children;
+                        
+                        unHighlight(col, col_id, blocks);
+                        focus_col_no -= 1;
+                    }
+
                     let col = document.querySelector(`.col-${focus_col_no+1}`);
                     const col_name = col.classList[0];
                     const col_id = Number(col_name[4]);
                     let blocks = col.children;
                     
-                    unHighlight(col, col_id, blocks);
-                    focus_col_no -= 1;
+                    highlight(col, col_id, blocks);
+                    focused = true;
                 }
-
-                let col = document.querySelector(`.col-${focus_col_no+1}`);
-                const col_name = col.classList[0];
-                const col_id = Number(col_name[4]);
-                let blocks = col.children;
-                
-                highlight(col, col_id, blocks);
-                focused = true;
-            }
+            }   
         }
         if(e.key == "ArrowRight" || e.key == "d" || e.key == "D") {
-            if(focus_col_no < 6) {
+            if ((e.key == "ArrowRight" && player == 1) || ((e.key == "d" || e.key == "D") && player == 0)) {
+                if(focus_col_no < 6) {
 
-                if (focused) {
+                    if (focused) {
+                        let col = document.querySelector(`.col-${focus_col_no+1}`);
+                        const col_name = col.classList[0];
+                        const col_id = Number(col_name[4]);
+                        let blocks = col.children;
+                        
+                        unHighlight(col, col_id, blocks);
+                        focus_col_no += 1;
+                    }
+
                     let col = document.querySelector(`.col-${focus_col_no+1}`);
                     const col_name = col.classList[0];
                     const col_id = Number(col_name[4]);
                     let blocks = col.children;
                     
-                    unHighlight(col, col_id, blocks);
-                    focus_col_no += 1;
+                    highlight(col, col_id, blocks);
+                    focused = true;
                 }
-
-                let col = document.querySelector(`.col-${focus_col_no+1}`);
-                const col_name = col.classList[0];
-                const col_id = Number(col_name[4]);
-                let blocks = col.children;
-                
-                highlight(col, col_id, blocks);
-                focused = true;
             }
         }
         if(e.key == "Enter") {
