@@ -1,5 +1,5 @@
-// draw 
-// controls 
+// Draw 
+// Game Rules  
 
 var game_no = 0;
 
@@ -324,7 +324,7 @@ function keyboardMoves(e) {
     }
 }
 
-function start() {
+function start() { 
     if(document.querySelector(".gg").style.display == "block") {
         keyboardNav();
         // Remove the speech bubble
@@ -337,6 +337,8 @@ function start() {
         if (endingScreen.classList.contains("show")) {
             endingScreen.classList.remove("show");
             endingScreen.style.display = "none";
+
+            game_no += 1;
         }
         
         // Show the Play Screen
@@ -394,7 +396,8 @@ function start() {
         }, 500);
 
         // Select a random player for first move
-        player = (player == 0 ? 1: 0);
+        player = (game_no == 0 ? Math.floor(Math.random() * 2) :  (player == 0 ? 1: 0));
+        
         document.querySelector(`.alert-player-${player+1}`).classList.add("show");
     }
 }
